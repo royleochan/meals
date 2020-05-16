@@ -13,6 +13,7 @@ const fetchFonts = () => {
 };
 
 export default function App() {
+  // @refresh reset
   const [fontLoaded, setFontLoaded] = useState(false);
 
   if (!fontLoaded) {
