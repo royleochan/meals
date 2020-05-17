@@ -30,6 +30,22 @@ const MealsNavigator = createStackNavigator(
   }
 );
 
+const FavNavigator = createStackNavigator(
+  {
+    Favorites: FavoritesScreen,
+    MealDetail: MealDetailScreen,
+  },
+  {
+    defaultNavigationOptions: {
+      headerStyle: {
+        backgroundColor: Platform.OS === "android" ? Colors.primaryColor : "",
+      },
+      headerTintColor:
+        Platform.OS === "android" ? "white" : Colors.primaryColor,
+    },
+  }
+);
+
 const MealsFavTabNavigator = createBottomTabNavigator(
   {
     Meals: {
@@ -47,15 +63,11 @@ const MealsFavTabNavigator = createBottomTabNavigator(
       },
     },
     Favorites: {
-      screen: FavoritesScreen,
+      screen: FavNavigator,
       navigationOptions: {
         tabBarIcon: (tabInfo) => {
           return (
-            <Ionicons
-              name="ios-restaurant"
-              size={25}
-              color={tabInfo.tintColor}
-            />
+            <Ionicons name="ios-star" size={25} color={tabInfo.tintColor} />
           );
         },
       },
