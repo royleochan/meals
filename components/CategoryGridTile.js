@@ -7,7 +7,7 @@ const CategoryGridTile = (props) => {
       <View
         style={{ ...styles.container, ...{ backgroundColor: props.color } }}
       >
-        <Text style={styles.title} numberOfLines={2}>
+        <Text style={styles.header} numberOfLines={2}>
           {props.title}
         </Text>
       </View>
@@ -35,9 +35,9 @@ const styles = StyleSheet.create({
     justifyContent: "flex-end",
     alignItems: "flex-end",
   },
-  title: {
+  header: {
     fontFamily: "open-sans-bold",
-    fontSize: 22,
+    fontSize: 20,
     textAlign: 'right'
   },
 });
