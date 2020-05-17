@@ -13,7 +13,7 @@ import CategoriesScreen from "../screens/CategoriesScreen";
 import CategoryMealsScreen from "../screens/CategoryMealsScreen";
 import MealDetailScreen from "../screens/MealDetailScreen";
 import FavoritesScreen from "../screens/FavoritesScreen";
-import FiltersScreen from "../screens/FilterScreen";
+import FilterScreen from "../screens/FilterScreen";
 
 const MealsNavigator = createStackNavigator(
   {
@@ -91,25 +91,13 @@ const MealsFavTabNavigator = createBottomTabNavigator(
   }
 );
 
-const FiltersNavigator = createStackNavigator(
+const FilterNavigator = createStackNavigator(
   {
-    Filters: FiltersScreen,
+    Filter: FilterScreen,
   },
   {
     navigationOptions: {
       drawerLabel: "Filters",
-    },
-  },
-  {
-    defaultNavigationOptions: {
-      headerStyle: {
-        backgroundColor: Platform.OS === "android" ? Colors.primaryColor : "",
-      },
-      headerTitleStyle: {
-        fontFamily: 'open-sans-bold'
-      },
-      headerTintColor:
-        Platform.OS === "android" ? "white" : Colors.primaryColor,
     },
   }
 );
@@ -120,7 +108,7 @@ const MainNavigator = createDrawerNavigator(
       screen: MealsFavTabNavigator,
       navigationOptions: { drawerLabel: "Meals" },
     },
-    Filters: FiltersNavigator,
+    Filter: FilterNavigator,
   },
   {
     contentOptions: {

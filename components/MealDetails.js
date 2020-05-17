@@ -7,7 +7,17 @@ import {
   ScrollView,
 } from "react-native";
 
+import DefaultText from "./DefaultText";
+
 const MealDetails = (props) => {
+  const layeredBox = (text) => {
+    return (
+      <View style={styles.box}>
+        <DefaultText>{text}</DefaultText>
+      </View>
+    );
+  };
+
   return (
     <View style={styles.wrapper}>
       <View style={styles.imageContainer}>
@@ -16,13 +26,22 @@ const MealDetails = (props) => {
           source={{ uri: props.itemDetails.imageUrl }}
         >
           <View style={styles.titleContainer}>
-            <Text style={styles.title}>{props.itemDetails.title}</Text>
+            <Text style={styles.title}>
+              {props.itemDetails.title}
+            </Text>
           </View>
         </ImageBackground>
       </View>
-      <View>
-        <Text>{props.itemDetails.steps}</Text>
-      </View>
+      <ScrollView>
+        <View style={styles.headerContainer}>
+          <Text style={styles.header}>Ingredients</Text>
+        </View>
+        {props.itemDetails.ingredients.map(layeredBox)}
+        <View style={styles.headerContainer}>
+          <Text style={styles.header}>Steps</Text>
+        </View>
+        {props.itemDetails.steps.map(layeredBox)}
+      </ScrollView>
     </View>
   );
 };
@@ -32,9 +51,10 @@ export default MealDetails;
 const styles = StyleSheet.create({
   wrapper: {
     alignItems: "center",
+    flex: 1,
   },
   imageContainer: {
-    height: "60%",
+    height: "40%",
     width: "90%",
     marginVertical: 10,
     alignItems: "center",
@@ -53,5 +73,18 @@ const styles = StyleSheet.create({
   },
   titleContainer: {
     backgroundColor: "grey",
+  },
+  box: {
+    borderWidth: 1,
+    borderRadius: 100,
+    paddingVertical: 10,
+    marginVertical: 10,
+    paddingHorizontal: 12,
+  },
+  header: {
+    fontFamily: "open-sans-bold",
+  },
+  headerContainer: {
+    alignItems: "center",
   },
 });
