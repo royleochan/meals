@@ -12,7 +12,7 @@ import DefaultText from "./DefaultText";
 const MealDetails = (props) => {
   const layeredBox = (text) => {
     return (
-      <View style={styles.box}>
+      <View style={styles.box} key={Math.random()*100}>
         <DefaultText>{text}</DefaultText>
       </View>
     );
