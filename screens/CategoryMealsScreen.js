@@ -8,6 +8,7 @@ import DefaultText from "../components/DefaultText";
 import MealList from "../components/MealList";
 
 const CategoryMealsScreen = (props) => {
+  console.log("test");
   // @refresh reload
   const catId = props.navigation.getParam("categoryId");
 
@@ -36,8 +37,8 @@ CategoryMealsScreen.navigationOptions = (navigationData) => {
 const styles = StyleSheet.create({
   content: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center'
+    justifyContent: "center",
+    alignItems: "center",
   },
 });
 
